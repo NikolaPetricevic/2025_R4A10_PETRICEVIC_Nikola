@@ -18,7 +18,7 @@ module.exports = {
 
   //2) Renvoyer l'index de la première valeur strictement inférieure à 7
   Q2() {
-    return getArray().findIndex((n) => n < 7)
+    return getArray().findIndex((n) => n < 7);
   },
 
   //3) Inverser le tableau en utilisant une méthode spécifiquement prévue à cet effet. Renvoyez ce tableau inversé
@@ -28,8 +28,9 @@ module.exports = {
 
   //4) Trier le tableau dans l'ordre croissant, renvoyez le tableau trié
   Q4() {
-    let array = getArray().map(Number);
-    return array.sort() 
+    let array = getArray();
+    array.sort(function(a, b){return a - b});
+    return array; 
   },
 
   //5) Ajouter la valeur 0 en premier index du tableau, renvoyez le tableau modifié
@@ -85,6 +86,6 @@ module.exports = {
 
   //13) Renvoyer le tableau en gardant uniquement les 2 derniers éléments
   Q13() {
-    return getArray().slice(-2, -1)
+    return getArray().slice(-2);
   }
 };
