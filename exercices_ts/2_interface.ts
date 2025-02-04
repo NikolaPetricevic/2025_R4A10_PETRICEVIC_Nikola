@@ -36,7 +36,7 @@ attention on renvoie un tableau de T
 */
 
 interface FindMany<T> {
-    findMany(): Promise<T>;
+    findMany(): Promise<T[]>;
 };
 
 /*
@@ -145,7 +145,21 @@ Chaque fonction devra être précédée du mot clé async : https://developer.mo
 Pour les findMany, retournez simplement un tableau vide, pour les autres, vous pouvez retourner null pour chaque méthode
 */
 
-// Implémentez ici
+class SQLStudentRepository implements StudentRepository {
+    
+    async findMany(): Promise<Student[]> {
+        return [];
+    }
+
+    async findOne(id: number): Promise<Student> {
+        return {id: 0, firstName: "", lastName: "", group: ""};
+    }
+
+    async create(input: Student): Promise<Student> {
+        
+    }
+
+}
 
 /**
  * Ca y est, vous êtes des génies (en devenir) du design logiciel en POO (le web aujourd'hui c'est beaucoup de software design, va falloir se préparer)
