@@ -128,7 +128,7 @@ interface StudentRepository extends FindMany<Student>, FindOne<Student>, Create<
 
 }
 
-interface CourseRepository extends FindMany<Course>, FindOne<Course>, Create<Course>, Update<Student> {
+interface CourseRepository extends FindMany<Course>, FindOne<Course>, Create<Course>, Update<Course> {
     
 }
 
@@ -156,7 +156,35 @@ class SQLStudentRepository implements StudentRepository {
     }
 
     async create(input: Student): Promise<Student> {
-        
+        return {id: 0, firstName: "", lastName: "", group: ""};
+    }
+
+    async update(id:number, input: Student): Promise<Student>{
+        return {id: 0, firstName: "", lastName: "", group: ""};
+    }
+
+    async delete(id:number): Promise<null> {
+        return null;
+    }
+
+}
+
+class SQLCourseRepository implements CourseRepository {
+
+    async findMany(): Promise<Course[]> {
+        return [];
+    }
+
+    async findOne(id: number): Promise<Course> {
+        return {id: 0, name: "", enseignant: "", active: false};
+    }
+
+    async create(input: Course): Promise<Course> {
+        return {id: 0, name: "", enseignant: "", active: false};
+    }
+
+    async update(id:number, input: Course): Promise<Course>{
+        return {id: 0, name: "", enseignant: "", active: false};
     }
 
 }
