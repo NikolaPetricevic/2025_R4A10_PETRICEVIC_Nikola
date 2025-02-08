@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerButtons {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Muli';
+    margin-right: 25px;
+}
+
+.headerButtons button {
+    width: 80px;
+    height: 35px;
+    border-radius: 55px;
+    background-color: #458FF6;
+    color: white;
+    font-family: 'Muli';
+    border-style: none;
+    display: block;
+}
+
+.headerButtons a {
+    display: none;
+    padding: 0 30px;
+    white-space: nowrap;
+}
+
+@media screen and (width >= 600px) {
+    header {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .headerButtons button {
+        display: none;
+    }
+    .headerButtons a {
+        display: flex;
+    }
+}

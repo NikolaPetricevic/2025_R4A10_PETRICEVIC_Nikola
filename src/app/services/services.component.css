@@ -1,0 +1,37 @@
+section {
+    margin-top: 100px;
+    font-family: 'Muli';
+}
+
+section h2 {
+    text-align: center;
+}
+
+section hr {
+    width: 10%;
+    max-height: 0.1;
+    margin-top: -5px;
+}
+
+section p {
+    color: #7D7987;
+    text-align: center;
+    
+}
+
+@media screen and (width >= 600px) {
+    section {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    section h2 {
+        font-size: 1.875vw;
+    }
+
+    section p {
+        padding-left: 100px;
+        padding-right: 100px;
+        font-size: 0.938vw;
+    }
+}

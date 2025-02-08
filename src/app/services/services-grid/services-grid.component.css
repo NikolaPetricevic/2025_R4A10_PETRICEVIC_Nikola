@@ -1,0 +1,19 @@
+ul {
+    background-color: #eef6fe;
+    list-style: none;
+    padding-top: 10px;
+    border-radius: 20px;
+    padding-bottom: 0.1px;
+    display: grid;
+}
+
+li {
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-left: -30px;
+    margin-right: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
