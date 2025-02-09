@@ -16,4 +16,5 @@ export class ServicesGridComponent {
                            "Free consultation with our trusted doctors and get the best recomendations", 
                            "You can get 24/7 urgent care for yourself or your children and your lovely family", 
                            "Track and save your medical history and health data"]
+  images:string[] = ["search_doctor", "online_pharmacy", "consultation", "details_info", "emergency_care", "tracking"]
 }

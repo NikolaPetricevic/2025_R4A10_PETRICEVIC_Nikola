@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class ServiceItemComponent {
   @Input({required: true}) title!: string;
   @Input({required: true}) description!: string;
+  @Input({required: true}) image!: string;
 }

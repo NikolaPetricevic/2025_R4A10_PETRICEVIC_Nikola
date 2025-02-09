@@ -1,0 +1,41 @@
+footer {
+    background-color: #458FF6;
+    justify-content: space-between;
+    /* display: grid; */
+    font-family: 'Muli';
+    color: white;
+    margin-top: 50px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 20px;
+    padding-left: 50px;
+}
+
+ul {
+    margin-left: -25px;
+    list-style: none;
+    display: grid;
+}
+
+li {
+    display: grid;
+}
+
+li a {
+    margin-bottom: 10px;
+}
+
+ul li img {
+    width: 150px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+@media screen and (width >= 600px) {
+    ul {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
