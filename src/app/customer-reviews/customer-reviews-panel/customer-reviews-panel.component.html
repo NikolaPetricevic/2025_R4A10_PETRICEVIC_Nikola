@@ -1,17 +1,16 @@
 <article>
     <h2>What our customer are saying</h2>
     <hr/>
-    <ul>
+    <ul class="gridPanel">
         <li class="customer_profile">
-            <img src="../../assets/lego_1.jpg"/>
+            <img src="assets/{{review.imageUrl}}.jpg"/>
             <ul>
-                <li><h3>Client 1</h3></li>
-                <li><p>Desc 1</p></li>
+                <li><h3>{{review.customer_name}}</h3></li>
+                <li><p>{{review.customer_description}}</p></li>
             </ul>
         </li>
         <li>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et risus consequat est pretium efficitur eu sed lectus. Donec et tellus id nulla molestie congue. 
-                Duis convallis urna a lorem condimentum, vitae consequat sapien efficitur.</p>
+            <p>{{review.text_review}}</p>
         </li>
     </ul>
 </article>

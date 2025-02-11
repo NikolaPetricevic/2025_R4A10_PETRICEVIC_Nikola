@@ -1,5 +1,4 @@
 <section>
-    <app-customer-reviews-panel></app-customer-reviews-panel>
-    <button>Prev</button>
-    <button>Next</button>
+    <app-customer-reviews-panel [review]="reviews[indexReview]"></app-customer-reviews-panel>
+    <app-button-line (onNextPrev)="onReviewChange($event)"></app-button-line>
 </section>

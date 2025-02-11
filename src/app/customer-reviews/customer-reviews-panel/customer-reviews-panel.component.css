@@ -9,6 +9,7 @@ article {
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
+    margin-bottom: 10px;
 }
 
 hr {
@@ -22,7 +23,6 @@ ul {
     list-style: none;
     align-items: center;
 }
-
 
 img {
     border-radius: 180px;
@@ -46,4 +46,15 @@ img {
 
 li {
     margin-left: -40px;
+}
+
+@media screen and (width >= 600px) {
+    .gridPanel {
+        grid-template-columns: repeat(2, 1fr);
+        margin-right: 10rem;
+    }
+
+    article {
+        padding-bottom: 20px;
+    }
 }
