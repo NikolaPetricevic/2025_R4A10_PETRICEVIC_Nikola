@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
+import { ServiceCard, ServicesGridComponent } from '../services-grid.component';
+
 
 @Component({
   selector: 'app-service-item',
   standalone: true,
-  imports: [],
+  imports: [ServicesGridComponent],
   templateUrl: './service-item.component.html',
   styleUrl: './service-item.component.css'
 })
 export class ServiceItemComponent {
-  @Input({required: true}) title!: string;
-  @Input({required: true}) description!: string;
-  @Input({required: true}) image!: string;
+  @Input({required: true}) card!:ServiceCard;
 }
