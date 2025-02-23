@@ -1,0 +1,10 @@
+<ul>
+    @for (voyage of listeVoyages; track $index) {
+        <li>
+            <p>{{voyage.destination}}</p>
+            <p>{{voyage.description}}</p>
+            <p>{{voyage.prix}}</p>
+            <p>{{voyage.id}}</p>
+        </li>
+    }
+</ul>
