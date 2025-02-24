@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { DESTINATIONS, DESCRIPTIONS, PRIX, IMAGESURL } from './voyages.consts';
 
 export type Voyage = {
   destination: string,
   description: string,
   prix: number,
   id: string,
+  imageUrl: string,
 }
 
 @Injectable({
@@ -12,24 +14,20 @@ export type Voyage = {
 })
 export class VoyagesService {
 
-  constructor() { }
+  private readonly voyages: Voyage[];
 
-  private readonly voyages: Voyage[] = [
-    {
-      destination: "Paris",
-      description: "Bof comme ville honnêtement pas ouf",
-      prix: 2000,
-      id: "" + Math.floor(Math.random()*100),
-    },
-    {
-      destination: "Londres",
-      description: "C'est la ville en Angleterre là",
-      prix: 50,
-      id: "" + Math.floor(Math.random()*100),
-    },
-  ]
+  constructor() {
+    this.voyages = [];
+    for (let i = 0; i < DESTINATIONS.length; i++) {
+      this.voyages.push({destination: DESTINATIONS[i], description: DESCRIPTIONS[i], prix: PRIX[i], id: "" + Math.floor(Math.random()*100), imageUrl: IMAGESURL[i]})
+    }
+  }
 
   findAll(): Voyage[] {
     return this.voyages;
+  }
+
+  findById(id: string): Voyage {
+    return this.voyages.find((voyage) => voyage.id == id) ?? {destination: '', description: '', prix: 0, id: '', imageUrl:''};
   }
 }

@@ -1,0 +1,17 @@
+ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(4, 1fr);
+    margin-right: 32px;
+    gap: 10px
+}
+
+li {
+    border: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    padding-left: 10px;
+    padding-top: 10px;
+    justify-content: center;
+}
+

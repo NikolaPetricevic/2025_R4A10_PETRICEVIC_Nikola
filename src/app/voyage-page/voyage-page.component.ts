@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Voyage, VoyagesService } from '../services/voyages.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-voyage-page',
@@ -10,17 +10,18 @@ import { Router } from '@angular/router';
   styleUrl: './voyage-page.component.scss'
 })
 export class VoyagePageComponent implements OnInit {
-  listeVoyages!: Voyage[];
+  voyage!: Voyage;
 
   constructor(
     private readonly voyagesService: VoyagesService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-      this.listeVoyages = this.voyagesService.findAll();
-      if (!this.listeVoyages) {
-        this.router.navigate(['/404']);
-      }
+    this.voyage = this.voyagesService.findById("" + this.activatedRoute.snapshot.paramMap.get('id'));
+    if(!this.voyage) {
+      this.router.navigate(['/404']);
+    }
   }
 }

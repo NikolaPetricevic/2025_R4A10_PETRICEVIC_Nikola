@@ -9,6 +9,6 @@ export const routes: Routes = [
     },
     {
         component: VoyagePageComponent,
-        path: 'voyage',
+        path: 'voyage/:id',
     }
 ];
