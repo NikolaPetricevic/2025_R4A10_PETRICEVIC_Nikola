@@ -1,5 +1,5 @@
 <ul>
     @for (voyage of voyages; track $index) {
-        <li><app-voyages-item [voyage]="voyage"></app-voyages-item></li>
+        <li><app-voyages-item (suppr)="supprimerVoyage($event)" [voyage]="voyage"></app-voyages-item></li>
     }
 </ul>

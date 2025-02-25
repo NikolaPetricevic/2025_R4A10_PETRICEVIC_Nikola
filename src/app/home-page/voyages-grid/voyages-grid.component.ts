@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Voyage, VoyagesService } from '../../services/voyages.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VoyagesItemComponent } from './voyages-item/voyages-item.component';
@@ -11,7 +11,8 @@ import { VoyagesItemComponent } from './voyages-item/voyages-item.component';
   styleUrl: './voyages-grid.component.scss'
 })
 export class VoyagesGridComponent {
-  voyages!: Voyage[];
+  @Input() voyages!: Voyage[];
+  @Output() voyageSupp = new EventEmitter<null>();
 
   constructor(
     private readonly voyagesService: VoyagesService,
@@ -19,10 +20,8 @@ export class VoyagesGridComponent {
     private readonly activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.voyages = this.voyagesService.findAll();
-    if(!this.voyages) {
-      this.router.navigate(['/404']);
-    }
+  supprimerVoyage(suppr: string): void {
+    this.voyagesService.delete(suppr);
+    this.voyageSupp.emit();
   }
 }

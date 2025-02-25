@@ -2,6 +2,8 @@
     <h3>{{voyage.destination}}</h3>
     <img src="assets/{{voyage.imageUrl}}.jpg"/>
     <p>{{voyage.description}}</p>
-    <button class="btn btn-primary" routerLink="/voyage/{{voyage.id}}">Détails</button>
+    <p class="prix">{{voyage.prix}}€</p>
+    <button class="btn btn-primary" routerLink="/voyage/{{voyage.id}}">Détails</button><br>
+    <button class="btn btn-danger boutonSupp" (click)="supprimerVoyage()">Supprimer</button>
 </article>
 
