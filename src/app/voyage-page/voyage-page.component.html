@@ -1,8 +1,15 @@
 <section>
-    <ul>
-        <li><h3>{{voyage.destination}}</h3></li>
-        <li><p>{{voyage.description}}</p></li>
-        <li><p>À partir de {{voyage.prix}}€</p></li>
-    </ul>
-    <img src="assets/{{voyage.imageUrl}}.jpg"/>
+    <div>
+        <ul>
+            <li><h3>{{voyage.destination}}</h3></li>
+            <li><p>{{voyage.description}}</p></li>
+            <li><p>À partir de {{voyage.prix}}€</p></li>
+        </ul>
+        <img src="assets/{{voyage.imageUrl}}.jpg"/>
+    </div>
+    <button class="btn btn-danger" (click)="afficherDialogueSuppression()">Supprimer</button>
 </section>
+
+@if (afficherSuppression) {
+<app-modal-suppression-voyage [voyageSupp]="voyage" (fermerModal)="gererActionModal($event)"></app-modal-suppression-voyage>
+}

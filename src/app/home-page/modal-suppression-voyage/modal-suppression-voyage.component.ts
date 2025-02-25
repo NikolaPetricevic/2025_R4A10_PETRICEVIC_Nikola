@@ -10,7 +10,7 @@ import { Voyage, VoyagesService } from '../../services/voyages.service';
 })
 export class ModalSuppressionVoyageComponent {
   @Input({required: true}) voyageSupp!: Voyage;
-  @Output() fermerModal = new EventEmitter<null>();
+  @Output() fermerModal = new EventEmitter<string>();
 
   constructor(
     private readonly voyagesService: VoyagesService,
@@ -18,10 +18,10 @@ export class ModalSuppressionVoyageComponent {
 
   supprimerVoyage(): void {
     this.voyagesService.delete(this.voyageSupp.id);
-    this.fermerModal.emit()
+    this.fermerModal.emit("voyageSupp")
   }
 
   annulerSupp(): void {
-    this.fermerModal.emit();
+    this.fermerModal.emit("annulation");
   }
 }

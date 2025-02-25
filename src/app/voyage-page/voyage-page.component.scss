@@ -1,10 +1,18 @@
 section {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 453px;
+}   
+
+div {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 180px;
     padding-right: 180px;
-    margin-bottom: 527px;
+    gap: 25px;
 }
 
 h3 {
@@ -24,3 +32,8 @@ img {
     height: 300px;
 }
 
+button {
+    width: 10%;
+    margin-top: 30px;
+    font-size: 20px;
+}
