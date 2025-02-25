@@ -20,7 +20,7 @@ export class VoyagePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.voyage = this.voyagesService.findById("" + this.activatedRoute.snapshot.paramMap.get('id'));
-    if(!this.voyage) {
+    if(this.voyagesService.checkVide(this.voyage)) {
       this.router.navigate(['/404']);
     }
   }

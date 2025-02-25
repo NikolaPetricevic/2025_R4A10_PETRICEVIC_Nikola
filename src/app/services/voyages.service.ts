@@ -36,12 +36,16 @@ export class VoyagesService {
     return this.voyages.slice(page*20, (page+1)*20);
   }
 
+  add(voyage: Voyage): void {
+    this.voyages.push(voyage);
+  }
+
   delete(id: string): void {
     let voyageDelete: Voyage = this.findById(id);
     this.voyages.splice(this.voyages.indexOf(voyageDelete), 1);
   }
 
-  genererVoyage(): void {
+  genererVoyage(): Voyage {
     let maxRandom: number = DESTINATIONS.length;
     let voyageRandom: Voyage = {
       destination: DESTINATIONS[Math.floor(Math.random()*maxRandom)],
@@ -50,7 +54,7 @@ export class VoyagesService {
       id: "" + Math.floor(Math.random()*100000),
       imageUrl: IMAGESURL[Math.floor(Math.random()*maxRandom)]
     };
-    this.voyages.push(voyageRandom);
+    return voyageRandom;
   }
 
   pagesMax(): number {
@@ -58,5 +62,9 @@ export class VoyagesService {
       return 0;
     }
     return Math.floor((this.voyages.length-1)/20);
+  }
+
+  checkVide(voyage: Voyage): boolean {
+      return voyage.destination == '' && voyage.description == '' && voyage.prix == 0 && voyage.id == '' && voyage.imageUrl == '';
   }
 }

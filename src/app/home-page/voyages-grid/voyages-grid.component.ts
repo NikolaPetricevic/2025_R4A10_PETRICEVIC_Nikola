@@ -12,16 +12,11 @@ import { VoyagesItemComponent } from './voyages-item/voyages-item.component';
 })
 export class VoyagesGridComponent {
   @Input() voyages!: Voyage[];
-  @Output() voyageSupp = new EventEmitter<null>();
+  @Output() voyageSupp = new EventEmitter<string>();
 
-  constructor(
-    private readonly voyagesService: VoyagesService,
-    private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute
-  ) {}
+  constructor() {}
 
   supprimerVoyage(suppr: string): void {
-    this.voyagesService.delete(suppr);
-    this.voyageSupp.emit();
+    this.voyageSupp.emit(suppr);
   }
 }

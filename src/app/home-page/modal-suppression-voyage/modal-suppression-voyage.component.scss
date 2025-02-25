@@ -1,0 +1,36 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgb(150, 150, 150, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-header {
+    border-radius: 10px 10px 0 0;
+    padding-left: 10px;
+}
+.modalSuppressionVoyage {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.contenuModal {
+    padding: 15px;
+}
+
+img {
+    width: 500px;
+    height: 250px;
+    display: block;
+    margin: auto;
+}
+
+.boutonSupprimer {
+    margin-right: 10px;
+}

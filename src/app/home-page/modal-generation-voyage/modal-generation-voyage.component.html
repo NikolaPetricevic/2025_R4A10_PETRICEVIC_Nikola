@@ -1,0 +1,17 @@
+<div class="overlay">
+    <div class="modalGenerationVoyage">
+        <div class="modal-header bg-primary text-white">
+            <h2 class="modal-title">Génération de voyage</h2>
+        </div>
+        <div class="contenuModal">
+        <p>Vous avez généré le voyage suivant : </p>
+        <img class="img-fluid rounded" src="assets/{{voyageGenere.imageUrl}}.jpg"/>
+        <h4 class="mt-3">{{voyageGenere.destination}}</h4>
+        <p>{{voyageGenere.description}}</p>
+        <p class="fw-bold" >À partir de {{voyageGenere.prix}}€</p>
+        <p>Voulez vous générer ce voyage et l'ajouter dans la liste ?</p>
+        <button class="btn btn-primary boutonAccepter" (click)="ajouterVoyage()">Oui</button>
+        <button class="btn btn-danger" (click)="annulerAjout()">Annuler</button>
+        </div>    
+    </div>
+</div>

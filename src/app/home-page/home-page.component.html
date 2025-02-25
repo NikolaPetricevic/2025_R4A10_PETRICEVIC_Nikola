@@ -1,7 +1,15 @@
 <h2>Nos voyages :</h2>
-<button class="btn btn-primary" (click)="genererVoyage()">Générer un voyage</button>
-<app-voyages-grid [voyages]="voyages20" (voyageSupp)="refresh()"></app-voyages-grid>
+<button class="btn btn-primary" (click)="afficherGenererVoyage()">Générer un voyage</button>
+<app-voyages-grid [voyages]="voyages20" (voyageSupp)="afficherDialogueSuppression($event)"></app-voyages-grid>
 <div class="buttonLine">
     <button class="btn btn-primary" (click)="prevPage()">Prev</button>
     <button class="btn btn-primary" (click)="nextPage()">Next</button>
 </div>
+
+@if (afficherGeneration) {
+    <app-modal-generation-voyage [voyageGenere]="voyageGenere" (fermerModal)="masquerGenererVoyage()"></app-modal-generation-voyage>
+}
+
+@if (afficherSuppression) {
+    <app-modal-suppression-voyage [voyageSupp]="voyageSupp" (fermerModal)="masquerDialogueSuppression()"></app-modal-suppression-voyage>
+}
