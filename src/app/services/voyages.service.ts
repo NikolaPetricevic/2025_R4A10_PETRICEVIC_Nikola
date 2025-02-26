@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DESTINATIONS, DESCRIPTIONS, PRIX, IMAGESURL } from './voyages.consts';
-import { max } from 'rxjs';
+import { DESTINATIONS, DESCRIPTIONS, PRIX, IMAGESURL } from './voyages.consts';;
 
 export type Voyage = {
   destination: string,
@@ -19,7 +18,7 @@ export class VoyagesService {
 
   constructor() {
     this.voyages = [];
-    for (let i = 0; i < DESTINATIONS.length; i++) {
+    for (let i:number = 0; i < DESTINATIONS.length; i++) {
       this.voyages.push({destination: DESTINATIONS[i], description: DESCRIPTIONS[i], prix: PRIX[i], id: "" + Math.floor(Math.random()*100000), imageUrl: IMAGESURL[i]})
     }
   }
@@ -41,8 +40,12 @@ export class VoyagesService {
   }
 
   delete(id: string): void {
-    let voyageDelete: Voyage = this.findById(id);
-    this.voyages.splice(this.voyages.indexOf(voyageDelete), 1);
+    for(let i:number = 0; i < this.voyages.length; i++) {
+      if(this.voyages[i].id == id) {
+        this.voyages.splice(i, 1);
+        break;
+      }
+    }
   }
 
   genererVoyage(): Voyage {

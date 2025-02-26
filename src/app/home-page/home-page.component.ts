@@ -2,13 +2,12 @@ import { Component, SimpleChanges } from '@angular/core';
 import { VoyagesGridComponent } from './voyages-grid/voyages-grid.component';
 import { Voyage, VoyagesService } from '../services/voyages.service';
 import { Router } from '@angular/router';
-import { ModalGenerationVoyageComponent } from './modal-generation-voyage/modal-generation-voyage.component';
 import { ModalSuppressionVoyageComponent } from './modal-suppression-voyage/modal-suppression-voyage.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [VoyagesGridComponent, ModalGenerationVoyageComponent, ModalSuppressionVoyageComponent],
+  imports: [VoyagesGridComponent, ModalSuppressionVoyageComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -46,7 +45,7 @@ export class HomePageComponent {
   genererVoyage(): void {
     this.voyagesService.genererVoyage();
     this.voyages20 = this.voyagesService.find20(this.pageActuelle);
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   nextPage(): void {

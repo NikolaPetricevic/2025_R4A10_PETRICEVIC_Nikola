@@ -1,0 +1,17 @@
+<div class="modal-header bg-primary text-white">
+    <h2 class="modal-title">Génération de voyage</h2>
+</div>
+<section class="sectionGeneration">
+    <h3>Vous avez généré le voyage suivant : </h3>
+    <div class="apercuVoyage">
+        <ul>
+            <li><h3>{{voyageGenere.destination}}</h3></li>
+            <li><p>{{voyageGenere.description}}</p></li>
+            <li><p>À partir de {{voyageGenere.prix}}€</p></li>
+        </ul>
+        <img src="assets/{{voyageGenere.imageUrl}}.jpg"/>
+    </div>
+    <p>Voulez vous générer ce voyage et l'ajouter dans la liste ?</p>
+    <button class="btn btn-primary boutonAccepter" (click)="ajouterVoyage()">Oui</button>
+    <button class="btn btn-success" (click)="regenererVoyage()">Regénérer un voyage</button>
+</section>    

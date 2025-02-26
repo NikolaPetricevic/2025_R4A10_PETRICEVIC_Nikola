@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -13,4 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 })
 export class AppComponent {
   title = 'TP3';
+
+  constructor(private readonly router:Router) {
+    router.navigate(['home']);
+  }
 }

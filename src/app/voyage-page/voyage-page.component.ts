@@ -38,7 +38,7 @@ export class VoyagePageComponent implements OnInit {
   gererActionModal(action: string): void {
     if(action == "voyageSupp") {
       this.supprimerVoyage();
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     }
     else {
       this.masquerDialogueSuppression();
