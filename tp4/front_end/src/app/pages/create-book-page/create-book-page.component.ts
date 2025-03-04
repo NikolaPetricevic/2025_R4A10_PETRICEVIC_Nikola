@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { BooksInMemoryService } from '../../services/book-inmemory.service';
 import { Book } from '../../models/book';
 import { Router } from '@angular/router';
+import { BookApiService } from '../../services/book-api.service';
 
 @Component({
   selector: 'app-create-book-page',
@@ -12,11 +12,12 @@ import { Router } from '@angular/router';
   styleUrl: './create-book-page.component.css',
 })
 export class CreateBookPageComponent {
-  private readonly bookService = inject(BooksInMemoryService);
-
+  private readonly bookService = inject(BookApiService);
   constructor(
-    private readonly router: Router
+    private readonly router: Router,
   ) {}
+
+ 
 
   bookForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]),
@@ -26,8 +27,9 @@ export class CreateBookPageComponent {
 
   onSubmit() {
     if (this.bookForm.valid) {
-      this.bookService.createBook(this.bookForm.value as Book);
+      this.bookService.createBook(this.bookForm.value as Book).subscribe();
       this.router.navigate(['/']);
     }
   }
+  
 }
