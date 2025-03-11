@@ -1,1 +1,27 @@
-<p>DOMINO'S VAINCRA</p>
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <label for="pizza">Pizza :</label>
+    <select formControlName="pizza">
+        @for(pizza of pizzas; track $index) {
+            <option [value]="pizza.name">{{pizza.name}}</option>
+        }
+    </select>
+
+    <label for="size">Taille :</label>
+    <select formControlName="size">
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="XXL">XXL</option>
+    </select>
+
+    <label for="paymentMethod">Moyen de paiement :</label>
+    <select formControlName="paymentMethod">
+        <option value="Espèces">Espèces</option>
+        <option value="Carte Bleue">Carte Bleue</option>
+        <option value="Bitcoin">Bitcoin</option>
+    </select>
+
+    <label for="email">Email :</label>
+    <input type="text" formControlName="email">
+
+    <button type="submit" [disabled]="orderForm.invalid">Passer commande</button>
+</form>

@@ -73,7 +73,7 @@ export class PizzaService {
     return name.toLowerCase().replace(/\s+/g, '-');
   }
 
-  checkVide(p: Pizza) {
+  checkVide(p: Pizza): boolean {
     return p.name == '' && p.image == '' && p.description == '' && p.ingredients.length == 0 && p.price == 0 && p.rating == 0;
   }
 
