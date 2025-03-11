@@ -1,23 +1,29 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { Pizza, PizzaService } from '../../../../services/pizza.service';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-single-pizza',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, RouterLink],
   templateUrl: './single-pizza.component.html',
   styleUrl: './single-pizza.component.css',
 })
 export class SinglePizzaComponent {
-  pizza = {
-    name: 'Végétarienne',
-    image:
-      'https://tse2.mm.bing.net/th?id=OIP.eSDxUs3uRMdNtz74mfFzNAHaEU&pid=Api',
-    description: 'Un mélange délicieux de légumes frais et de fromage.',
-    ingredients: ['Tomate', 'Mozzarella', 'Poivrons', 'Champignons', 'Oignons'],
-    price: 9.99,
-    rating: 3,
-  };
+  pizza!: Pizza;
+  constructor(
+    private readonly pizzaService: PizzaService,
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.pizza = this.pizzaService.findOne("" + this.activatedRoute.snapshot.paramMap.get('name'));
+    if(this.pizzaService.checkVide(this.pizza)) {
+      this.router.navigate(['**']);
+    }
+  }
 
   get stars(): number[] {
     return Array(this.pizza.rating).fill(0);
